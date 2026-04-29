@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1064.0" prefWidth="768.0" style="-fx-background-color: fef9f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductCardController">
+   <children>
+      <VBox layoutY="1.0" prefHeight="322.0" prefWidth="673.0">
+         <children>
+            <HBox prefHeight="459.0" prefWidth="159.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="277.0" prefWidth="318.0">
+                     <children>
+                        <ImageView fitHeight="325.0" fitWidth="318.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/example_burger.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="459.0" prefWidth="330.0">
+                     <children>
+                        <Label fx:id="productName" text="Бургер большой" textFill="#aa4a1e">
+                           <font>
+                              <Font name="Arial Black" size="35.0" />
+                           </font>
+                           <padding>
+                              <Insets top="50.0" />
+                           </padding></Label>
+                        <Label fx:id="productDescription" text="Самый сочный бургер" textFill="#545454">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="productPrice" text="150₽" textFill="#edc049">
+                           <font>
+                              <Font name="Arial Bold" size="33.0" />
+                           </font></Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
