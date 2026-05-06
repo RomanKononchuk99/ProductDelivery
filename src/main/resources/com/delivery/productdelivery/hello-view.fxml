@@ -6,11 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="200.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.HelloController">
+<ScrollPane prefHeight="1096.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.HelloController">
     <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="1202.0" prefWidth="799.0" style="-fx-background-color: fef9f5; -fx-border-color: #A5A5A5; -fx-border-width: 2;">
+
        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffa775;">
           <children>
-             <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" text="Change size" />
+             <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" style="-fx-background-color: transparent;" />
              <Button fx:id="minimalizeButtone" mnemonicParsing="false" onAction="#onMinimalizeButtonClick" prefHeight="13.0" prefWidth="90.0" style="-fx-background-color: transparent;" />
              <Button fx:id="exitButtone" mnemonicParsing="false" onAction="#onCloseWindowButtonClick" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
           </children></HBox>
@@ -34,6 +35,6 @@
              <Insets />
           </VBox.margin></HBox>
        <HBox prefHeight="335.0" prefWidth="592.0" style="-fx-background-color: ffa775;" />
-       <ListView fx:id="productsList" prefHeight="275.0" prefWidth="789.0" style="-fx-background-radius: 15;" />
+        <Pagination fx:id="productsPages" prefHeight="200.0" prefWidth="200.0" />
     </VBox>
 </ScrollPane>

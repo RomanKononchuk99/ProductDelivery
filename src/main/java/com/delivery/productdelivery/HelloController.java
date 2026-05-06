@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -34,6 +31,9 @@ public class HelloController {
     private Button exitButtone;
 
     @FXML
+    private Pagination productsPages;
+
+    @FXML
     private Button fullWindowButton;
 
     @FXML
@@ -42,25 +42,26 @@ public class HelloController {
     }
 
     @FXML
-    public ListView<List<Product>> productsList;
-
-    @FXML
     private VBox container;
 
     ProductService productService;
+
+    int pageSize = 10;
+
+    private List<Product> allProducts = new ArrayList<>();
 
     @FXML
     private void initialize(){
         productService = new ProductService();
         loadProducts();
-        productsList.setPrefHeight(Region.USE_COMPUTED_SIZE);
-        productsList.setMaxHeight(Region.USE_PREF_SIZE);
 
         Image exitButton = new Image("file:src/main/resources/images/exit_button.png");
         Image minimalizeButton = new Image("file:src/main/resources/images/minimilize_button.png");
+        Image resize = new Image("file:src/main/resources/images/resize_icon.png");
 
         ImageView exitButtonView = new ImageView(exitButton);
         ImageView minimalizeButtonView = new ImageView(minimalizeButton);
+        ImageView resizeButtonView = new ImageView(resize);
 
         exitButtonView.setFitWidth(25);
         exitButtonView.setFitHeight(25);
@@ -68,8 +69,12 @@ public class HelloController {
         minimalizeButtonView.setFitHeight(25);
         minimalizeButtonView.setFitWidth(25);
 
+        resizeButtonView.setFitWidth(25);
+        resizeButtonView.setFitHeight(25);
+
         minimalizeButtone.setGraphic(minimalizeButtonView);
         exitButtone.setGraphic(exitButtonView);
+        fullWindowButton.setGraphic(resizeButtonView);
     }
 
     @FXML
@@ -120,20 +125,16 @@ public class HelloController {
         };
 
         task.setOnSucceeded(e -> {
-            List<Product> products = task.getValue();
+            allProducts = task.getValue();
 
-            for (Product product : products) {
-                Node card = createProductCard(product);
-                container.getChildren().add(card);
-            }
+            int pageCount = (int) Math.ceil((double) allProducts.size() / pageSize);
+            productsPages.setPageCount(pageCount);
 
+            productsPages.setPageFactory(this::createPage);
         });
 
-        task.setOnFailed(e -> task.getException().printStackTrace());
-
-
-
         new Thread(task).start();
+
     }
 
     private List<List<Product>> groupProducts(List<Product> products, int size) {
@@ -146,9 +147,22 @@ public class HelloController {
         return result;
     }
 
+    private Node createPage(int pageIndex){
 
+        VBox pageBox = new VBox(10);
 
+        int from = pageIndex * pageSize;
+        int to = Math.min(from + pageSize, allProducts.size());
 
+        List<Product> pageItems = allProducts.subList(from, to);
 
+        for (Product product : pageItems) {
+            Node card = createProductCard(product);
+            pageBox.getChildren().add(card);
+        }
+
+        return pageBox;
+
+    }
 
 }
