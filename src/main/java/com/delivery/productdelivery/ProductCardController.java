@@ -25,14 +25,35 @@ public class ProductCardController {
 
     Product productLocal;
 
+    boolean isBasket;
+
+    public void initialize(){
+        productService = new ProductService();
+
+        isBasket = productService.checkProductInBasket(productLocal);
+
+        changeButtonView();
+
+    }
+
+    public void changeButtonView(){
+        if (!isBasket){
+            addBasketButton.setText("Добавить");
+        }else {
+            addBasketButton.setText("Удалить");
+        }
+    }
+
     @FXML
-    protected void onAddBasketButtonClick(boolean isBasket){
+    protected void onAddBasketButtonClick(){
         if (isBasket){
             productService.removeProduct(productLocal);
         }else {
             productService.pushProduct(productLocal);
             addBasketButton.setText("Успешно))");
         }
+        isBasket = productService.checkProductInBasket(productLocal);
+        changeButtonView();
 
 
     }
@@ -53,10 +74,7 @@ public class ProductCardController {
 //        });
     }
 
-    public void initialize(){
-        productService = new ProductService();
 
-    }
 
 
 }

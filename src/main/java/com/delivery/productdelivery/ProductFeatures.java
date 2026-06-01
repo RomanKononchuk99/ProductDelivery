@@ -18,7 +18,7 @@ public enum ProductFeatures {
     public Node createProductCard(Product product) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("src/main/resources/com/delivery/productdelivery/product-card.fxml")
+                    getClass().getResource("/com/delivery/productdelivery/product-card.fxml")
             );
 
             Parent card = loader.load();

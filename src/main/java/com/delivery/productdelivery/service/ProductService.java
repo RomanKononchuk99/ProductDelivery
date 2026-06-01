@@ -79,4 +79,8 @@ public class ProductService {
 
     }
 
+    public boolean checkProductInBasket(Product product){
+        return loadBasketProducts().contains(product);
+    }
+
 }
