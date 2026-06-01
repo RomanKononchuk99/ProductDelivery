@@ -21,7 +21,7 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="459.0" prefWidth="330.0">
+                  <VBox prefHeight="322.0" prefWidth="357.0">
                      <children>
                         <Label fx:id="productName" text="Бургер большой" textFill="#aa4a1e">
                            <font>
@@ -38,7 +38,22 @@
                         <Label fx:id="productPrice" text="150₽" textFill="#edc049">
                            <font>
                               <Font name="Arial Bold" size="33.0" />
-                           </font></Label>
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
+                        <HBox prefHeight="39.0" prefWidth="329.0">
+                           <children>
+                              <Button fx:id="addBasketButton" mnemonicParsing="false" onAction="#onAddBasketButtonClick" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: #aa4a1e;" text="Добавить в корзину" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

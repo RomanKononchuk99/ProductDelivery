@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.BasketController">
+
+    <!-- Top Control Buttons -->
+    <top>
+        <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="450.0" style="-fx-background-color: #ffa775;">
+            <children>
+                <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" style="-fx-background-color: transparent;" />
+                <Button fx:id="minimalizeButtone" mnemonicParsing="false" onAction="#onMinimalizeButtonClick" prefHeight="13.0" prefWidth="90.0" style="-fx-background-color: transparent;" />
+                <Button fx:id="exitButtone" mnemonicParsing="false" onAction="#onCloseWindowButtonClick" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
+            </children>
+        </HBox>
+    </top>
+
+
+
+
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox fx:id="container" alignment="TOP_CENTER" style="-fx-background-color: #fef9f5; -fx-border-color: #A5A5A5; -fx-border-width: 2;">
+                    <!-- Separator -->
+                    <HBox prefHeight="335.0" prefWidth="592.0" style="-fx-background-color: #ffa775;">
+                  <VBox.margin>
+                     <Insets top="200.0" />
+                  </VBox.margin></HBox>
+                    <!-- Pagination for Products -->
+                    <Pagination fx:id="productsPages" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+            </content>
+
+        </ScrollPane>
+    </center>
+
+</BorderPane>

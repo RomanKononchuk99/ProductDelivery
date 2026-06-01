@@ -6,35 +6,52 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="1096.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.HelloController">
-    <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="1202.0" prefWidth="799.0" style="-fx-background-color: fef9f5; -fx-border-color: #A5A5A5; -fx-border-width: 2;">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.HelloController">
 
-       <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffa775;">
-          <children>
-             <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" style="-fx-background-color: transparent;" />
-             <Button fx:id="minimalizeButtone" mnemonicParsing="false" onAction="#onMinimalizeButtonClick" prefHeight="13.0" prefWidth="90.0" style="-fx-background-color: transparent;" />
-             <Button fx:id="exitButtone" mnemonicParsing="false" onAction="#onCloseWindowButtonClick" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
-          </children></HBox>
-       <HBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="806.0" style="-fx-background-color: fef9f5; -fx-border-radius: 15; -fx-background-radius: 15 15 0 0;">
-          <children>
-             <Label prefHeight="292.0" prefWidth="312.0" text="GREATE FAST FOOD SHOP" textFill="#332b43" wrapText="true">
-                <font>
-                   <Font name="System Bold" size="50.0" />
-                </font>
-                <HBox.margin>
-                   <Insets left="30.0" />
-                </HBox.margin>
-             </Label>
-             <ImageView fitHeight="307.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                   <Image url="@../../../images/burger.png" />
-                </image>
-             </ImageView>
-          </children>
-          <VBox.margin>
-             <Insets />
-          </VBox.margin></HBox>
-       <HBox prefHeight="335.0" prefWidth="592.0" style="-fx-background-color: ffa775;" />
-        <Pagination fx:id="productsPages" prefHeight="200.0" prefWidth="200.0" />
-    </VBox>
-</ScrollPane>
+    <!-- Top Control Buttons -->
+    <top>
+        <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="450.0" style="-fx-background-color: #ffa775;">
+            <children>
+            <Button fx:id="basketButton" mnemonicParsing="false" onAction="#onBasketButton" style="-fx-background-color: transparent;" />
+                <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" style="-fx-background-color: transparent;" />
+                <Button fx:id="minimalizeButtone" mnemonicParsing="false" onAction="#onMinimalizeButtonClick" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: transparent;" />
+                <Button fx:id="exitButtone" mnemonicParsing="false" onAction="#onCloseWindowButtonClick" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
+            </children>
+        </HBox>
+    </top>
+
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox fx:id="container" alignment="TOP_CENTER" style="-fx-background-color: #fef9f5; -fx-border-color: #A5A5A5; -fx-border-width: 2;">
+                    <!-- Header Section -->
+                    <HBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="806.0" style="-fx-background-color: #fef9f5; -fx-border-radius: 15; -fx-background-radius: 15 15 0 0;">
+                        <children>
+                            <Label prefHeight="292.0" prefWidth="312.0" text="GREATE FAST FOOD SHOP" textFill="#332b43" wrapText="true">
+                                <font>
+                                    <Font name="System Bold" size="50.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="30.0" />
+                                </HBox.margin>
+                            </Label>
+                            <ImageView fitHeight="307.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../images/burger.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </HBox>
+                    <!-- Separator -->
+                    <HBox prefHeight="335.0" prefWidth="592.0" style="-fx-background-color: #ffa775;" />
+                    <!-- Pagination for Products -->
+                    <Pagination fx:id="productsPages" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+            </content>
+
+        </ScrollPane>
+    </center>
+
+</BorderPane>
