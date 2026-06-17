@@ -35,7 +35,7 @@ public class ProductService {
     public void removeProduct(Product product){
 
         List<Product> productList = loadBasketProducts();
-        productList.remove(product);
+        productList.removeIf(p -> p.getId() == product.getId());
         saveProduct(productList);
     }
 
@@ -80,7 +80,10 @@ public class ProductService {
     }
 
     public boolean checkProductInBasket(Product product){
-        return loadBasketProducts().contains(product);
+
+        return loadBasketProducts()
+                .stream()
+                .anyMatch(p -> p.getId() == product.getId());
     }
 
 }

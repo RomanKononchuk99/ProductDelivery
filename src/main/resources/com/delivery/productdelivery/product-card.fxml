@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="1064.0" prefWidth="768.0" style="-fx-background-color: fef9f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductCardController">
+<AnchorPane fx:id="productCardPane" prefHeight="1064.0" prefWidth="768.0" style="-fx-background-color: fef9f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductCardController">
    <children>
-      <VBox layoutY="1.0" prefHeight="322.0" prefWidth="673.0">
+      <VBox onMouseClicked="#onProductCardPaneClick" layoutY="1.0" prefHeight="322.0" prefWidth="673.0">
          <children>
             <HBox prefHeight="459.0" prefWidth="159.0">
                <children>

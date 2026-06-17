@@ -5,6 +5,7 @@ module com.delivery.productdelivery {
     requires com.google.gson;
     requires javafx.graphics;
     requires javafx.base;
+    requires java.desktop;
 
     opens com.delivery.productdelivery to javafx.fxml;
     opens com.delivery.productdelivery.data to com.google.gson;

@@ -8,6 +8,11 @@ public class Product {
     String description;
     String category;
     String imageUrl;
+    int id;
+
+    public int getId() {
+        return id;
+    }
 
     public String getImageUrl() {
         return imageUrl;

@@ -2,10 +2,14 @@ package com.delivery.productdelivery;
 
 import com.delivery.productdelivery.data.Product;
 import com.delivery.productdelivery.service.ProductService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class ProductCardController {
 
@@ -27,12 +31,12 @@ public class ProductCardController {
 
     boolean isBasket;
 
+
+    @FXML
     public void initialize(){
         productService = new ProductService();
 
-        isBasket = productService.checkProductInBasket(productLocal);
 
-        changeButtonView();
 
     }
 
@@ -58,12 +62,21 @@ public class ProductCardController {
 
     }
 
+    @FXML
+    protected void onProductCardPaneClick(MouseEvent event) throws IOException {
+        ProductFeatures.INSTANCE.loadProductInfo(event);
+    }
+
 
     public void setData(Product product) {
         productName.setText(product.getName());
         productDescription.setText(product.getDescription());
         productPrice.setText(product.getPrice() + " $");
         productLocal = product;
+
+        isBasket = productService.checkProductInBasket(productLocal);
+
+        changeButtonView();
 
 //        if (product.getImageUrl() != null) {
 //            productImage.setImage(new Image(product.getImageUrl()));

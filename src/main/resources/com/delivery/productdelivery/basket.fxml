@@ -13,6 +13,7 @@
                 <Button fx:id="fullWindowButton" mnemonicParsing="false" onAction="#onFullWidowButtonClick" style="-fx-background-color: transparent;" />
                 <Button fx:id="minimalizeButtone" mnemonicParsing="false" onAction="#onMinimalizeButtonClick" prefHeight="13.0" prefWidth="90.0" style="-fx-background-color: transparent;" />
                 <Button fx:id="exitButtone" mnemonicParsing="false" onAction="#onCloseWindowButtonClick" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="toMainButton" mnemonicParsing="false" onAction="#ontoMainButtonClick" text="To main" />
             </children>
         </HBox>
     </top>
