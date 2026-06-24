@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
-import java.awt.event.MouseEvent;
+
 import java.io.IOException;
 
 public class ProductCardController {
@@ -25,6 +28,12 @@ public class ProductCardController {
     @FXML
     private Button addBasketButton;
 
+    @FXML
+    private AnchorPane productCardPane;
+
+    @FXML
+    private ImageView productImage;
+
     ProductService productService;
 
     Product productLocal;
@@ -35,17 +44,11 @@ public class ProductCardController {
     @FXML
     public void initialize(){
         productService = new ProductService();
+        isBasket = productService.checkProductInBasket(productLocal);
 
 
 
-    }
 
-    public void changeButtonView(){
-        if (!isBasket){
-            addBasketButton.setText("Добавить");
-        }else {
-            addBasketButton.setText("Удалить");
-        }
     }
 
     @FXML
@@ -57,26 +60,29 @@ public class ProductCardController {
             addBasketButton.setText("Успешно))");
         }
         isBasket = productService.checkProductInBasket(productLocal);
-        changeButtonView();
+        ProductFeatures.INSTANCE.changeButtonView(isBasket, addBasketButton);
 
 
     }
 
     @FXML
     protected void onProductCardPaneClick(MouseEvent event) throws IOException {
-        ProductFeatures.INSTANCE.loadProductInfo(event);
+        Navigation.switchScene("/com/delivery/productdelivery/product-info.fxml", productCardPane, (ProductInfoController c) -> c.setProduct(productLocal));
     }
 
 
     public void setData(Product product) {
+        Image image = new Image(product.getImageUrl().toString());
+        productImage.setImage(image);
         productName.setText(product.getName());
         productDescription.setText(product.getDescription());
         productPrice.setText(product.getPrice() + " $");
         productLocal = product;
 
+
         isBasket = productService.checkProductInBasket(productLocal);
 
-        changeButtonView();
+        isBasket = productService.checkProductInBasket(productLocal);
 
 //        if (product.getImageUrl() != null) {
 //            productImage.setImage(new Image(product.getImageUrl()));

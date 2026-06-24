@@ -6,31 +6,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="productCardPane" prefHeight="1064.0" prefWidth="768.0" style="-fx-background-color: fef9f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductCardController">
+<AnchorPane fx:id="productCardPane" prefHeight="1064.0" prefWidth="768.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductCardController">
    <children>
-      <VBox onMouseClicked="#onProductCardPaneClick" layoutY="1.0" prefHeight="322.0" prefWidth="673.0">
+      <VBox layoutY="1.0" onMouseClicked="#onProductCardPaneClick" prefHeight="322.0" prefWidth="673.0">
          <children>
             <HBox prefHeight="459.0" prefWidth="159.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="277.0" prefWidth="318.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="322.0" prefWidth="240.0">
                      <children>
-                        <ImageView fitHeight="325.0" fitWidth="318.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="productImage" fitHeight="264.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../images/example_burger.png" />
+                              <Image url="@../../../images/Products/four_seasons.png" />
                            </image>
                         </ImageView>
                      </children>
                   </VBox>
                   <VBox prefHeight="322.0" prefWidth="357.0">
                      <children>
-                        <Label fx:id="productName" text="Бургер большой" textFill="#aa4a1e">
+                        <Label fx:id="productName" prefHeight="0.0" prefWidth="323.0" text="Маргарита" textFill="#514643">
                            <font>
-                              <Font name="Arial Black" size="35.0" />
+                              <Font name="Arial Black" size="32.0" />
                            </font>
                            <padding>
-                              <Insets top="50.0" />
+                              <Insets top="25.0" />
                            </padding></Label>
-                        <Label fx:id="productDescription" text="Самый сочный бургер" textFill="#545454">
+                        <Label fx:id="productDescription" text="Самый сочный бургер" textFill="#a7a7a7">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -42,12 +42,20 @@
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin></Label>
-                        <HBox prefHeight="39.0" prefWidth="329.0">
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="329.0">
                            <children>
-                              <Button fx:id="addBasketButton" mnemonicParsing="false" onAction="#onAddBasketButtonClick" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: #aa4a1e;" text="Добавить в корзину" textFill="WHITE">
+                              <Label text="690г" textFill="#a4a4a4">
                                  <font>
-                                    <Font name="Arial Black" size="12.0" />
+                                    <Font name="Arial" size="17.0" />
                                  </font>
+                              </Label>
+                              <Button fx:id="addBasketButton" mnemonicParsing="false" onAction="#onAddBasketButtonClick" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: #fa4a0e; -fx-background-radius: 15;" text="Добавить в корзину" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="120.0" />
+                                 </HBox.margin>
                               </Button>
                            </children>
                            <VBox.margin>

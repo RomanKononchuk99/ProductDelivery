@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.delivery.productdelivery.ProductInfoController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.delivery.productdelivery.ProductInfoController">
     <top>
         <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="450.0" style="-fx-background-color: #ffa775;">
             <children>
@@ -20,6 +17,50 @@
             </children>
         </HBox>
     </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="215.0" prefWidth="600.0">
+               <children>
+                  <ImageView fx:id="productImageField" fitHeight="208.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/Products/pepperoni.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="215.0" prefWidth="393.0">
+                     <children>
+                        <Label fx:id="productNameField" prefHeight="73.0" prefWidth="356.0" text="Имя" textFill="#514643">
+                           <font>
+                              <Font name="Arial Black" size="32.0" />
+                           </font></Label>
+                        <Label fx:id="productDescriptionField" prefHeight="19.0" prefWidth="373.0" text="Описание" textFill="#a7a7a7">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label fx:id="productPriceField" prefHeight="38.0" prefWidth="240.0" text="150" textFill="#edc049">
+                           <font>
+                              <Font name="Arial Bold" size="33.0" />
+                           </font></Label>
+                        <Button fx:id="addBasketButton" mnemonicParsing="false" onAction="#onAddBasketButton" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #fa4a0e; -fx-background-radius: 15;" text="Добавить" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+
 
 
 

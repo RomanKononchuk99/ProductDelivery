@@ -1,5 +1,7 @@
 package com.delivery.productdelivery.data;
 
+import javafx.scene.image.Image;
+
 public class Product {
 
     Double price;
@@ -13,6 +15,10 @@ public class Product {
     public int getId() {
         return id;
     }
+
+//    public Image getImageUrl() {
+//        return imageUrl;
+//    }
 
     public String getImageUrl() {
         return imageUrl;
