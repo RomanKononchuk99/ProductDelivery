@@ -98,6 +98,8 @@ public class BasketController {
         exitButtone.setGraphic(exitButtonView);
         fullWindowButton.setGraphic(resizeButtonView);
 
+
+
     }
 
 

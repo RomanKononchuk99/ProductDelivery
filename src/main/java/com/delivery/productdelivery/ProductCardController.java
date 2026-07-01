@@ -44,11 +44,9 @@ public class ProductCardController {
     @FXML
     public void initialize(){
         productService = new ProductService();
+
         isBasket = productService.checkProductInBasket(productLocal);
-
-
-
-
+        ProductFeatures.INSTANCE.changeButtonView(isBasket, addBasketButton);
     }
 
     @FXML
